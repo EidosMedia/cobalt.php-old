@@ -1,5 +1,5 @@
 {
-    "name": "eidosmedia/cobalt",
+    "name": "eidosmedia/cobalt.php",
     "description": "Cobalt PHP SDK",
     "require": {
         "guzzlehttp/guzzle": "~6.0",
