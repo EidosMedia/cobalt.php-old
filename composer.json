@@ -1,6 +1,7 @@
 {
     "name": "eidosmedia/cobalt.php",
     "description": "Cobalt PHP SDK",
+    "license": "MIT",
     "require": {
         "guzzlehttp/guzzle": "~6.0",
         "danielstjules/stringy": "^3.1"
