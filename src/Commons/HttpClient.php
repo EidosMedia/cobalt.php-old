@@ -4,7 +4,6 @@ namespace Eidosmedia\Cobalt\Commons;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\GuzzleException;
-
 use Stringy\StaticStringy as S;
 use Eidosmedia\Cobalt\Commons\Exceptions\HttpClientException;
 
