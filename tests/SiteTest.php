@@ -85,4 +85,14 @@ class SiteTest extends TestCase {
         $this->assertContainsOnlyInstancesOf(NodeData::class, $result);
     }
 
+    public function testGetNode() {
+        $cobalt = new Cobalt($this->discoveryUri);
+        $service = $cobalt->getSite();
+        $sitemap = $service->getSitemap($this->siteName);
+        $root = $sitemap->getRoot();
+        $node = $service->getNode($this->siteName, $root->getId());
+        $this->assertInstanceOf(NodeData::class, $node);
+        $this->assertEquals($node->getId(), $root->getId());
+    }
+
 }

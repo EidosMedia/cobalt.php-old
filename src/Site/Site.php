@@ -41,4 +41,11 @@ class Site extends Service {
         return new PaginatedResult($nodes, $response['count'], $response['offset'], $response['limit']);
     }
 
+    public function getNode($siteName, $id) {
+        $response = $this->getHttpClient()->get('/api/nodes/' . $id, [
+            'emk.site' => $siteName
+        ]);
+        return new NodeData($response);
+    }
+
 }
