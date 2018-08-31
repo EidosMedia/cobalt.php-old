@@ -48,4 +48,20 @@ class Site extends Service {
         return new NodeData($response);
     }
 
+    public function getPage($siteName, $nodeOrIdOrPath) {
+        $query = [
+            'emk.site' => $siteName
+        ];
+        if ($nodeOrIdOrPath instanceof NodeData) {
+            $api = '/api/pages/' . $nodeOrIdOrPath->getId();
+        } else if (S::startsWith($nodeOrIdOrPath, '/')) {
+            $query['url'] = $nodeOrIdOrPath;
+            $api = '/api/pages';
+        } else {
+            $api = '/api/pages/' . $nodeOrIdOrPath;
+        }
+        $response = $this->getHttpClient()->get($api, $query);
+        return new Page($response);
+    }
+
 }
