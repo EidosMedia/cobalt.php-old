@@ -10,7 +10,7 @@ class ContentData extends Entity {
         parent::__construct($data);
     }
 
-    public function getNodeData() {
+    public function getData() {
         return new NodeData($this->data['data']);
     }
 
