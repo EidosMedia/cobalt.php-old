@@ -110,7 +110,7 @@ class SiteTest extends TestCase {
         $contentData = $page->getModel();
         $this->assertInstanceOf(ContentData::class, $contentData);
         $this->assertEquals($contentData->getDataType(), 'node');
-        $nodeData = $contentData->getNodeData();
+        $nodeData = $contentData->getData();
         $this->assertInstanceOf(NodeData::class, $nodeData);
         $this->assertContainsOnlyInstancesOf(NodeData::class, $contentData->getNodes());
         $this->assertContainsOnly('string', $contentData->getChildren());
@@ -131,6 +131,8 @@ class SiteTest extends TestCase {
         $this->assertEquals($siteNode->getStatus(), 'ENABLED');
         $this->assertEquals($siteNode->getType(), 'site');
         $this->assertEquals($siteNode->getPath(), '/');
+        $currentObject = $page->getCurrentObject();
+        $this->assertInstanceOf(NodeData::class, $currentObject);
     }
 
     public function testGetPageByNodeData() {

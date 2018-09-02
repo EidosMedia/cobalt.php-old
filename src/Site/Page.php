@@ -10,6 +10,10 @@ class Page extends Entity {
         parent::__construct($data);
     }
 
+    public function getCurrentObject() {
+        return $this->getModel()->getData();
+    }
+
     public function getModel() {
         return new ContentData($this->data['model']);
     }
