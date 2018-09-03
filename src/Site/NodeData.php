@@ -38,4 +38,20 @@ class NodeData extends Entity {
         return $this->data['sys']['type'];
     }
 
+    public function getCreationTime() {
+        return new \DateTime($this->data['sys']['creationTime']);
+    }
+
+    public function getCreatedBy($byId = false) {
+        return $this->data['sys']['createdBy'][$byId ? 'userId' : 'userName'];
+    }
+
+    public function getUpdateTime() {
+        return new \DateTime($this->data['sys']['updateTime']);
+    }
+
+    public function getUpdatedBy($byId = false) {
+        return $this->data['sys']['updatedBy'][$byId ? 'userId' : 'userName'];
+    }
+
 }

@@ -123,6 +123,12 @@ class SiteTest extends TestCase {
         $this->assertEquals($nodeData->getKind(), 'conf');
         $this->assertEquals($nodeData->getBaseType(), 'site');
         $this->assertEquals($nodeData->getType(), 'site');
+        $this->assertInstanceOf(\DateTime::class, $nodeData->getCreationTime());
+        $this->assertInternalType('string', $nodeData->getCreatedBy());
+        $this->assertInternalType('string', $nodeData->getCreatedBy(true));
+        $this->assertInstanceOf(\DateTime::class, $nodeData->getUpdateTime());
+        $this->assertInternalType('string', $nodeData->getUpdatedBy());
+        $this->assertInternalType('string', $nodeData->getUpdatedBy(true));
         $siteData = $page->getSiteData();
         $this->assertInstanceOf(SiteData::class, $siteData);
         $this->assertEquals($siteData->getSiteName(), $this->siteName);
