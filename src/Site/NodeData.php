@@ -54,4 +54,8 @@ class NodeData extends Entity {
         return $this->data['sys']['updatedBy'][$byId ? 'userId' : 'userName'];
     }
 
+    public function getAuthors() {
+        return $this->data['authors'];
+    }
+
 }
