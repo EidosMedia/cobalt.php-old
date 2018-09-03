@@ -117,6 +117,7 @@ class SiteTest extends TestCase {
         $childId = $contentData->getChildren()[0];
         $child = $contentData->getNode($childId);
         $this->assertInstanceOf(NodeData::class, $child);
+        $this->assertContainsOnlyInstancesOf(NodeData::class, $contentData->getChildrenNodes());
         $nodeData = $contentData->getData();
         $this->assertInstanceOf(NodeData::class, $nodeData);
         $this->assertEquals($nodeData->getKind(), 'conf');
