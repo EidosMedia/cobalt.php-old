@@ -30,7 +30,7 @@ class ContentData extends Entity {
         return new NodeData($this->data['nodes'][$id]);
     }
 
-    public function getChildrenNodes() {
+    public function getChildNodes() {
         return array_map(function($id) { return $this->getNode($id); }, $this->data['children']);
     }
 
