@@ -26,6 +26,10 @@ class ContentData extends Entity {
         return $this->data['children'];
     }
 
+    public function getNode($id) {
+        return new NodeData($this->data['nodes'][$id]);
+    }
+
     public function getTotalPages() {
         return $this->data['totalPages'];
     }

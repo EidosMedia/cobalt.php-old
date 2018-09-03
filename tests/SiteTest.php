@@ -114,6 +114,9 @@ class SiteTest extends TestCase {
         $this->assertContainsOnly('string', $contentData->getChildren());
         $this->assertInternalType('int', $contentData->getTotalPages());
         $this->assertInternalType('int', $contentData->getPage());
+        $childId = $contentData->getChildren()[0];
+        $child = $contentData->getNode($childId);
+        $this->assertInstanceOf(NodeData::class, $child);
         $nodeData = $contentData->getData();
         $this->assertInstanceOf(NodeData::class, $nodeData);
         $this->assertEquals($nodeData->getKind(), 'conf');
@@ -126,7 +129,6 @@ class SiteTest extends TestCase {
         $this->assertInternalType('string', $siteData->getRootId());
         $this->assertInternalType('string', $siteData->getTitle());
         $this->assertInternalType('string', $siteData->getDescription());
-        $this->assertTrue($siteData->getSummary() === null || is_string($siteData->getSummary()));
         $siteNode = $page->getSiteNode();
         $this->assertInstanceOf(SiteNode::class, $siteNode);
         $this->assertInternalType('string', $siteNode->getId());

@@ -30,12 +30,4 @@ class SiteData extends Entity {
         return $this->data['description'];
     }
 
-    public function getSummary() {
-        if (isset($this->data['summary'])) {
-            return $this->data['summary'];
-        } else {
-            return null;
-        }
-    }
-
 }
