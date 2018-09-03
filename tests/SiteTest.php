@@ -110,12 +110,15 @@ class SiteTest extends TestCase {
         $contentData = $page->getModel();
         $this->assertInstanceOf(ContentData::class, $contentData);
         $this->assertEquals($contentData->getDataType(), 'node');
-        $nodeData = $contentData->getData();
-        $this->assertInstanceOf(NodeData::class, $nodeData);
         $this->assertContainsOnlyInstancesOf(NodeData::class, $contentData->getNodes());
         $this->assertContainsOnly('string', $contentData->getChildren());
         $this->assertInternalType('int', $contentData->getTotalPages());
         $this->assertInternalType('int', $contentData->getPage());
+        $nodeData = $contentData->getData();
+        $this->assertInstanceOf(NodeData::class, $nodeData);
+        $this->assertEquals($nodeData->getKind(), 'conf');
+        $this->assertEquals($nodeData->getBaseType(), 'site');
+        $this->assertEquals($nodeData->getType(), 'site');
         $siteData = $page->getSiteData();
         $this->assertInstanceOf(SiteData::class, $siteData);
         $this->assertEquals($siteData->getSiteName(), $this->siteName);

@@ -26,4 +26,16 @@ class NodeData extends Entity {
         return $this->data['title'];
     }
 
+    public function getKind() {
+        return $this->data['sys']['kind'];
+    }
+
+    public function getBaseType() {
+        return $this->data['sys']['baseType'];
+    }
+
+    public function getType() {
+        return $this->data['sys']['type'];
+    }
+
 }
