@@ -70,4 +70,8 @@ class NodeData extends Entity {
         }
     }
 
+    public function getSectionPath() {
+        return $this->data['pubInfo']['sectionPath'];
+    }
+
 }
