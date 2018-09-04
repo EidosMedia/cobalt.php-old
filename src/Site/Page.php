@@ -26,4 +26,12 @@ class Page extends Entity {
         return new SiteData($this->data['siteData']);
     }
 
+    public function getResourceUrl($id) {
+        return $this->data['resourcesUrls'][$id];
+    }
+
+    public function getUrl($id) {
+        return $this->data['nodesUrls'][$id];
+    }
+
 }
