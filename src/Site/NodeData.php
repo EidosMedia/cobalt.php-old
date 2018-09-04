@@ -55,11 +55,19 @@ class NodeData extends Entity {
     }
 
     public function getAuthors() {
-        return $this->data['authors'];
+        if (isset($this->data['authors'])) {
+            return $this->data['authors'];
+        } else {
+            return null;
+        }
     }
 
     public function getPictureId() {
-        return $this->data['picture'];
+        if (isset($this->data['picture'])) {
+            return $this->data['picture'];
+        } else {
+            return null;
+        }
     }
 
 }
