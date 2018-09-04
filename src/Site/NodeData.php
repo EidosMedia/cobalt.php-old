@@ -58,4 +58,8 @@ class NodeData extends Entity {
         return $this->data['authors'];
     }
 
+    public function getPictureId() {
+        return $this->data['picture'];
+    }
+
 }
