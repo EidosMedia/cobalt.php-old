@@ -30,13 +30,18 @@ class NodeDataTest extends TestCase {
             ]
         ],
         'pubInfo' => [
-            'sectionPath' => '/this/is/a/test'
+            'sectionPath' => '/this/is/a/test',
+            'canonical' => '/this/is/a/canonical'
         ]
+    ];
+
+    private $emptyData = [
+        'pubInfo' => []
     ];
 
     public function test() {
         $nodeData = new NodeData($this->data);
-        $emptyNodeData = new NodeData([]);
+        $emptyNodeData = new NodeData($this->emptyData);
         // get id
         $id = $nodeData->getId();
         $this->assertInternalType('string', $id);
@@ -107,6 +112,13 @@ class NodeDataTest extends TestCase {
         $sectionPath = $nodeData->getSectionPath();
         $this->assertInternalType('string', $sectionPath);
         $this->assertEquals($sectionPath, $this->data['pubInfo']['sectionPath']);
+        // get canonical
+        $canonical = $nodeData->getCanonical();
+        $this->assertInternalType('string', $canonical);
+        $this->assertEquals($canonical, $this->data['pubInfo']['canonical']);
+        // get canonical - not defined
+        $canonical = $emptyNodeData->getCanonical();
+        $this->assertNull($canonical);
     }
 
 }

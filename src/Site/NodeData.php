@@ -74,4 +74,12 @@ class NodeData extends Entity {
         return $this->data['pubInfo']['sectionPath'];
     }
 
+    public function getCanonical() {
+        if (isset($this->data['pubInfo']['canonical'])) {
+            return $this->data['pubInfo']['canonical'];
+        } else {
+            return null;
+        }
+    }
+
 }
