@@ -3,6 +3,7 @@
 namespace Eidosmedia\Cobalt\Site;
 
 use Eidosmedia\Cobalt\Commons\Entity;
+use Stringy\StaticStringy as S;
 
 class Sitemap extends Entity {
 
@@ -29,6 +30,19 @@ class Sitemap extends Entity {
             array_push($nodes, new NodeData($this->data['nodes'][$childId]));
         }
         return $nodes;
+    }
+
+    public function getSection($idOrPath) {
+        if (S::startsWith($idOrPath, '/')) {
+            foreach ($this->data['nodes'] as $id => $node) {
+                if ($node['pubInfo']['sectionPath'] == $idOrPath) {
+                    return new NodeData($node);
+                }
+            }
+            return null;
+        } else {
+            return new NodeData($this->data['nodes'][$idOrPath]);
+        }
     }
 
 }
