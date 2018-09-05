@@ -17,8 +17,13 @@ class Sitemap extends Entity {
         return new NodeData($node);
     }
 
-    public function getMenu($node) {
-        if ($node instanceof NodeData) {
+    public function getMenu($node = null) {
+        if (!isset($node) || $node == null) {
+            $node = $this->data['root']['id'];
+        }
+        if (is_string($node) && S::startsWith($node, '/')) {
+            $nodeId = $this->getSection($node)->getId();
+        } else if ($node instanceof NodeData) {
             $nodeId = $node->getId();
         } else {
             $nodeId = $node;

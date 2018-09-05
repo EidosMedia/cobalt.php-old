@@ -50,8 +50,14 @@ class SitemapTest extends TestCase {
         // get menu by node
         $menu = $sitemap->getMenu($root);
         $this->assertContainsOnlyInstancesOf(NodeData::class, $menu);
-        // get menu by node
+        // get menu by id
         $menu = $sitemap->getMenu($root->getId());
+        $this->assertContainsOnlyInstancesOf(NodeData::class, $menu);
+        // get root menu
+        $menu = $sitemap->getMenu();
+        $this->assertContainsOnlyInstancesOf(NodeData::class, $menu);
+        // get menu by section path
+        $menu = $sitemap->getMenu('/test/');
         $this->assertContainsOnlyInstancesOf(NodeData::class, $menu);
     }
 
