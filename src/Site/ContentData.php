@@ -31,7 +31,12 @@ class ContentData extends Entity {
     }
 
     public function getChildNodes() {
-        return array_map(function($id) { return $this->getNode($id); }, $this->data['children']);
+        $children = array_map(function($id) { return $this->getNode($id); }, $this->data['children']);
+        $childNodes = [];
+        foreach ($children as $child) {
+            $childNodes[$child->getId()] = $child;
+        }
+        return $childNodes;
     }
 
     public function getTotalPages() {
