@@ -34,6 +34,11 @@ class NodeDataTest extends TestCase {
         'pubInfo' => [
             'sectionPath' => '/this/is/a/test',
             'canonical' => '/this/is/a/canonical'
+        ],
+        'files' => [
+            'content' => [
+                'data' => '<document><content><h1>content</h1></content></document>'
+            ]
         ]
     ];
 
@@ -135,6 +140,12 @@ class NodeDataTest extends TestCase {
         // get canonical - not defined
         $canonical = $emptyNodeData->getCanonical();
         $this->assertNull($canonical);
+        // get content
+        $content = $nodeData->getContent();
+        $this->assertInternalType('string', $content);
+        // get content - not defined
+        $content = $emptyNodeData->getContent();
+        $this->assertNull($content);
     }
 
 }

@@ -98,4 +98,12 @@ class NodeData extends Entity {
         }
     }
 
+    public function getContent() {
+        if (isset($this->data['files']) && isset($this->data['files']['content']) && isset($this->data['files']['content']['data'])) {
+            return $this->data['files']['content']['data'];
+        } else {
+            return null;
+        }
+    }
+
 }
