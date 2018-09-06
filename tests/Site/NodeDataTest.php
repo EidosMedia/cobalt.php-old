@@ -12,6 +12,8 @@ class NodeDataTest extends TestCase {
         'parentId' => '4000-0a82648d112e-2892b4e26fe3-2000',
         'name' => 'this is the name',
         'title' => 'this is the tile',
+        'summary' => 'this is the summary',
+        'description' => 'this is the description',
         'authors' => [ 'ale', 'ber' ],
         'picture' => '4000-0a82648d112e-2892b4e26fe3-2000',
         'sys' => [
@@ -58,6 +60,20 @@ class NodeDataTest extends TestCase {
         $title = $nodeData->getTitle();
         $this->assertInternalType('string', $title);
         $this->assertEquals($title, $this->data['title']);
+        // get description
+        $description = $nodeData->getDescription();
+        $this->assertInternalType('string', $description);
+        $this->assertEquals($description, $this->data['description']);
+        // get description - not defined
+        $description = $emptyNodeData->getDescription();
+        $this->assertNull($description);
+        // get summary
+        $summary = $nodeData->getSummary();
+        $this->assertInternalType('string', $summary);
+        $this->assertEquals($summary, $this->data['summary']);
+        // get summary - not defined
+        $summary = $emptyNodeData->getSummary();
+        $this->assertNull($summary);
         // get kind
         $kind = $nodeData->getKind();
         $this->assertInternalType('string', $kind);
