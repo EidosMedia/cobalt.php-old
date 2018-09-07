@@ -120,4 +120,17 @@ class NodeData extends Entity {
         return $this->docs['content'];
     }
 
+    public function transformContentDocument($xsl) {
+        $contentDocument = $this->getContentDocument();
+        if ($contentDocument == null) {
+            return null;
+        }
+        if (!($xsl instanceof \DOMDocument)) {
+            $xsl = \DOMDocument::loadXML($xsl);
+        }
+        $processor = new \XSLTProcessor();
+        $processor->importStyleSheet($xsl);
+        return $processor->transformToXml($contentDocument);
+    }
+
 }

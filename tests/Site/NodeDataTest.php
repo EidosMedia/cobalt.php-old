@@ -46,6 +46,18 @@ class NodeDataTest extends TestCase {
         'pubInfo' => []
     ];
 
+    private $xsl = <<<XSL
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" omit-xml-declaration="yes" />
+    <xsl:template match="/document/content">
+        <transformed>
+            <xsl:value-of select="h1" />
+        </transformed>
+    </xsl:template>
+</xsl:stylesheet>
+XSL;
+    private $xslResult = '<transformed>content</transformed>';
+
     public function test() {
         $nodeData = new NodeData($this->data);
         $emptyNodeData = new NodeData($this->emptyData);
@@ -155,7 +167,12 @@ class NodeDataTest extends TestCase {
         // get content document - not defined
         $contentDocument = $emptyNodeData->getContentDocument();
         $this->assertNull($contentDocument);
-
+        // transform content document
+        $transformedContentDocument = $nodeData->transformContentDocument($this->xsl);
+        $this->assertEquals(trim($transformedContentDocument), trim($this->xslResult));
+        // transform content document - not defined
+        $transformedContentDocument = $emptyNodeData->transformContentDocument($this->xsl);
+        $this->assertNull($transformedContentDocument);
     }
 
 }
