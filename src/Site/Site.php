@@ -50,7 +50,8 @@ class Site extends Service {
 
     public function getPage($siteName, $nodeOrIdOrPath) {
         $query = [
-            'emk.site' => $siteName
+            'emk.site' => $siteName,
+            'urlsAbsolute' => true
         ];
         if ($nodeOrIdOrPath instanceof NodeData) {
             $api = '/api/pages/' . $nodeOrIdOrPath->getId();
