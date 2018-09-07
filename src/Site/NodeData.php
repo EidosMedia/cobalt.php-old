@@ -6,6 +6,8 @@ use Eidosmedia\Cobalt\Commons\Entity;
 
 class NodeData extends Entity {
 
+    private $docs = [];
+
     public function __construct($data) {
         parent::__construct($data);
     }
@@ -104,6 +106,18 @@ class NodeData extends Entity {
         } else {
             return null;
         }
+    }
+
+    public function getContentDocument() {
+        if (isset($this->docs['content'])) {
+            return $this->docs['content'];
+        }
+        $content = $this->getContent();
+        if ($content == null) {
+            return null;
+        }
+        $this->docs['content'] = \DOMDocument::loadXML($content);
+        return $this->docs['content'];
     }
 
 }

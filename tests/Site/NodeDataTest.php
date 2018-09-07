@@ -146,6 +146,16 @@ class NodeDataTest extends TestCase {
         // get content - not defined
         $content = $emptyNodeData->getContent();
         $this->assertNull($content);
+        // get content document
+        $contentDocument = $nodeData->getContentDocument();
+        $this->assertInstanceOf(\DOMDocument::class, $contentDocument);
+        $contentDocument2 = $nodeData->getContentDocument();
+        $this->assertInstanceOf(\DOMDocument::class, $contentDocument);
+        $this->assertEquals($contentDocument, $contentDocument2);
+        // get content document - not defined
+        $contentDocument = $emptyNodeData->getContentDocument();
+        $this->assertNull($contentDocument);
+
     }
 
 }
