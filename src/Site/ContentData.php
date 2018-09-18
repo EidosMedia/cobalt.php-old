@@ -51,10 +51,13 @@ class ContentData extends Entity {
         return $this->getData()->getZonesNames();
     }
 
-    public function getZoneNodes($zoneName) {
+    public function getZoneNodes($zoneName, $node = null) {
+        if ($node == null) {
+            $node = $this->getData();
+        }
         return array_map(function($id) {
             return $this->getNode($id);
-        }, $this->getData()->getZoneIds($zoneName));
+        }, $node->getZoneIds($zoneName));
     }
 
 }
