@@ -153,7 +153,7 @@ class NodeData extends Entity {
         if ($template == null) {
             return [];
         }
-        return array_keys($template);
+        return array_keys($template['zones']);
     }
 
     public function getZoneIds($zoneName) {
