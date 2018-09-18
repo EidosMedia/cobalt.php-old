@@ -133,4 +133,44 @@ class NodeData extends Entity {
         return $processor->transformToXml($contentDocument);
     }
 
+    public function getTemplateName() {
+        if (isset($this->data['attributes']) && isset($this->data['attributes']['template'])) {
+            return $this->data['attributes']['template'];
+        }
+        return null;
+    }
+
+    private function getTemplate() {
+        $templateName = $this->getTemplateName();
+        if ($templateName == null) {
+            return null;
+        }
+        return $this->data['files']['templates']['data'][$templateName];
+    }
+
+    public function getZonesNames() {
+        $template = $this->getTemplate();
+        if ($template == null) {
+            return [];
+        }
+        return array_keys($template);
+    }
+
+    public function getZoneIds($zoneName) {
+        $template = $this->getTemplate();
+        if ($template == null) {
+            return null;
+        }
+        $zone = $template['zones'][$zoneName];
+        $sequences = $zone['sequences'];
+        $maxItems = 0;
+        foreach ($sequences as $sequence) {
+            $maxItems += $sequence['maxItems'];
+        }
+        $links = $this->data['links']['pagelink'][$zoneName];
+        return array_map(function($link) {
+            return $link['targetId'];
+        } , array_slice($links, 0, $maxItems));
+    }
+
 }

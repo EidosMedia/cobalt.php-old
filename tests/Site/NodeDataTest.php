@@ -38,12 +38,58 @@ class NodeDataTest extends TestCase {
         'files' => [
             'content' => [
                 'data' => '<document><content><h1>content</h1><h2>another content</h2></content></document>'
+            ],
+            'templates' => [
+                'data' => [
+                    't1' => [
+                        'zones' => [
+                            'z1' => [
+                                'name' => 'z1',
+                                'sequences' => [[
+                                    'maxItems' => 1
+                                ], [
+                                    'maxItems' => 2
+                                ]]
+                            ],
+                            'z2' => [
+                                'name' => 'z2',
+                                'sequences' => [[
+                                    'maxItems' => 3
+                                ]]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ],
+        'attributes' => [
+            'template' => 't1'
+        ],
+        'links' => [
+            'pagelink' => [
+                'z1' => [[
+                    'targetId' => 'id1'
+                ], [
+                    'targetId' => 'id2'
+                ], [
+                    'targetId' => 'id3'
+                ], [
+                    'targetId' => 'id4'
+                ], [
+                    'targetId' => 'id5'
+                ]],
+                'z2' => [[
+                    'targetId' => 'id6'
+                ], [
+                    'targetId' => 'id7'
+                ]]
             ]
         ]
     ];
 
     private $emptyData = [
-        'pubInfo' => []
+        'pubInfo' => [],
+        'attributes' => []
     ];
 
     private $xsl = <<<XSL
@@ -173,6 +219,29 @@ XSL;
         // transform content document - not defined
         $transformedContentDocument = $emptyNodeData->transformContentDocument($this->xsl);
         $this->assertNull($transformedContentDocument);
+        // get template name
+        $templateName = $nodeData->getTemplateName();
+        $this->assertInternalType('string', $templateName);
+        $this->assertEquals($templateName, $this->data['attributes']['template']);
+        // get template name - not defined
+        $templateName = $emptyNodeData->getTemplateName();
+        $this->assertNull($templateName);
+        // get zones names
+        $zonesNames = $nodeData->getZonesNames();
+        $this->assertContainsOnly('string', $zonesNames);
+        // get zones names - not defined
+        $zonesNames = $emptyNodeData->getZonesNames();
+        $this->assertEquals(0, count($templateName));
+        // get zone ids
+        $zoneIds = $nodeData->getZoneIds('z1');
+        $this->assertContainsOnly('string', $zoneIds);
+        $this->assertEquals(3, count($zoneIds));
+        $zoneIds = $nodeData->getZoneIds('z2');
+        $this->assertContainsOnly('string', $zoneIds);
+        $this->assertEquals(2, count($zoneIds));
+        // get zone ids - not defined
+        $zoneIds = $emptyNodeData->getZoneIds('z1');
+        $this->assertNull($zoneIds);
     }
 
 }
