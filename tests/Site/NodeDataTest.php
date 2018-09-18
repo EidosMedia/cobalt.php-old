@@ -37,7 +37,7 @@ class NodeDataTest extends TestCase {
         ],
         'files' => [
             'content' => [
-                'data' => '<document><content><h1>content</h1></content></document>'
+                'data' => '<document><content><h1>content</h1><h2>another content</h2></content></document>'
             ]
         ]
     ];
