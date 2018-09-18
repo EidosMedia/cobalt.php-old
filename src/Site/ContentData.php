@@ -22,16 +22,20 @@ class ContentData extends Entity {
         return array_map(function($el) { return new NodeData($el); }, $this->data['nodes']);
     }
 
-    public function getChildren() {
-        return $this->data['children'];
+    public function getChildren($node = null) {
+        if ($node == null) {
+            return $this->data['children'];
+        } else {
+            return $node->getChildren();
+        }
     }
 
     public function getNode($id) {
         return new NodeData($this->data['nodes'][$id]);
     }
 
-    public function getChildNodes() {
-        $children = array_map(function($id) { return $this->getNode($id); }, $this->data['children']);
+    public function getChildNodes($node = null) {
+        $children = array_map(function($id) { return $this->getNode($id); }, $this->getChildren($node));
         $childNodes = [];
         foreach ($children as $child) {
             $childNodes[$child->getId()] = $child;

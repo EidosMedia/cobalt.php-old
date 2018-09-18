@@ -84,6 +84,10 @@ class NodeDataTest extends TestCase {
                     'targetId' => 'id7'
                 ]]
             ]
+        ],
+        'children' => [
+            'id1', 
+            'id2'
         ]
     ];
 
@@ -242,6 +246,9 @@ XSL;
         // get zone ids - not defined
         $zoneIds = $emptyNodeData->getZoneIds('z1');
         $this->assertNull($zoneIds);
+        // get children
+        $children = $nodeData->getChildren();
+        $this->assertContainsOnly('string', $children);
     }
 
 }

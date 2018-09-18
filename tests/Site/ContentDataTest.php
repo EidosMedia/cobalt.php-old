@@ -111,6 +111,9 @@ class ContentDataTest extends TestCase {
         $node = $contentData->getNode($anId);
         $this->assertInstanceOf(NodeData::class, $node);
         $this->assertEquals($node->getId(), $anId);
+        // get children with node
+        $children = $contentData->getChildren($node);
+        $this->assertContainsOnly('string', $children);
         // get child nodes
         $childNodes = $contentData->getChildNodes();
         $this->assertContainsOnly('string', array_keys($childNodes));

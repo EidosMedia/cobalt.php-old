@@ -173,4 +173,12 @@ class NodeData extends Entity {
         } , array_slice($links, 0, $maxItems));
     }
 
+    public function getChildren() {
+        if (isset($this->data['children'])) {
+            return $this->data['children'];
+        } else {
+            return [];
+        }
+    }
+
 }
