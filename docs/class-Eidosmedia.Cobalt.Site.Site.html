@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Eidosmedia\Cobalt\Site\Site</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Eidosmedia.html">
+						Eidosmedia<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Eidosmedia.Cobalt.html">
+						Cobalt<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Eidosmedia.Cobalt.Commons.html">
+						Commons<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Eidosmedia.Cobalt.Commons.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-Eidosmedia.Cobalt.Discovery.html">
+						Discovery					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-Eidosmedia.Cobalt.Site.html">
+						Site					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Eidosmedia.Cobalt.Site.ContentData.html">ContentData</a></li>
+				<li><a href="class-Eidosmedia.Cobalt.Site.NodeData.html">NodeData</a></li>
+				<li><a href="class-Eidosmedia.Cobalt.Site.Page.html">Page</a></li>
+				<li class="active"><a href="class-Eidosmedia.Cobalt.Site.Site.html">Site</a></li>
+				<li><a href="class-Eidosmedia.Cobalt.Site.SiteData.html">SiteData</a></li>
+				<li><a href="class-Eidosmedia.Cobalt.Site.Sitemap.html">Sitemap</a></li>
+				<li><a href="class-Eidosmedia.Cobalt.Site.SiteNode.html">SiteNode</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Eidosmedia.Cobalt.Site.html" title="Summary of Eidosmedia\Cobalt\Site"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Site</h1>
+
+
+	<div class="description">
+	<p>Site service</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Eidosmedia.Cobalt.Commons.Service.html"><span>Eidosmedia\Cobalt\Commons\Service</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Eidosmedia\Cobalt\Site\Site</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Eidosmedia.html">Eidosmedia</a>\<a href="namespace-Eidosmedia.Cobalt.html">Cobalt</a>\<a href="namespace-Eidosmedia.Cobalt.Site.html">Site</a><br>
+		
+
+				<b>Example:</b>
+				<p>// build site service based on the discovery information <br />
+$discoveryUri = "http://cobalt-endpoint/discovery"; <br />
+$cobalt = new \Eidosmedia\Cobalt\Cobalt($discoveryUri); <br />
+$siteService = $cobalt->getSite(); <br /></p><br>
+				<b>Example:</b>
+				<p>// instantiate a site service from a service info <br />
+$siteUri = "http://cobalt-endpoint"; <br />
+$siteServiceInfo = new \Eidosmedia\Cobalt\Commons\ServiceInfo("SITE", $siteUri); <br />
+$siteService = new \Eidosmedia\Cobalt\Site\Site($siteServiceInfo); <br /></p><br>
+			<b>Located at</b> <a href="source-class-Eidosmedia.Cobalt.Site.Site.html#9-136" title="Go to source code">Site/Site.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Eidosmedia.Cobalt.Site.Site.html#26-35" title="Go to source code">__construct</a>( <span>ServiceInfo <var>$serviceInfo</var></span> )</code>
+
+		<div class="description short">
+			<p>Site service constructor</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Site service constructor</p>
+
+<p>Instantiate a new site service, given its service info</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$serviceInfo</var></dt>
+					<dd>the site service info</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Eidosmedia.Cobalt.Commons.Service.html#___construct">Eidosmedia\Cobalt\Commons\Service::__construct()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSitemap" id="_getSitemap">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Eidosmedia.Cobalt.Site.Sitemap.html">Eidosmedia\Cobalt\Site\Sitemap</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSitemap">#</a>
+		<code><a href="source-class-Eidosmedia.Cobalt.Site.Site.html#37-52" title="Go to source code">getSitemap</a>( <span>string <var>$siteName</var></span> )</code>
+
+		<div class="description short">
+			<p>Sitemap of a given site</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Sitemap of a given site</p>
+
+<p>Method to retrieve the sitemap of a given site.</p>
+
+<p>It calls the <em>/api/site</em> resource.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$siteName</var></dt>
+					<dd>the site name</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Eidosmedia.Cobalt.Site.Sitemap.html">Eidosmedia\Cobalt\Site\Sitemap</a></code><br>the sitemap of the site
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getNodes" id="_getNodes">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Eidosmedia.Cobalt.Commons.PaginatedResult.html">Eidosmedia\Cobalt\Commons\PaginatedResult</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getNodes">#</a>
+		<code><a href="source-class-Eidosmedia.Cobalt.Site.Site.html#54-88" title="Go to source code">getNodes</a>( <span>string <var>$siteName</var></span>, <span>string <var>$section</var> = <span class="php-quote">'/'</span></span>, <span>boolean <var>$recursive</var> = <span class="php-keyword1">false</span></span>, <span>integer <var>$offset</var> = <span class="php-num">0</span></span>, <span>integer <var>$limit</var> = <span class="php-num">20</span></span> )</code>
+
+		<div class="description short">
+			<p>List of nodes</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>List of nodes</p>
+
+<p>Method to retrieve a list of nodes for a given site and section path.</p>
+
+<p>It calls the <em>/api/nodes</em> resource.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$siteName</var></dt>
+					<dd>the site name</dd>
+					<dt><var>$section</var></dt>
+					<dd>the section path</dd>
+					<dt><var>$recursive</var></dt>
+					<dd>if to consider also the subsections</dd>
+					<dt><var>$offset</var></dt>
+					<dd>the offset of the pagination</dd>
+					<dt><var>$limit</var></dt>
+					<dd>the size of a page for the pagination</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Eidosmedia.Cobalt.Commons.PaginatedResult.html">Eidosmedia\Cobalt\Commons\PaginatedResult</a></code><br>the list of NodeData mathing the given parameters
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getNode" id="_getNode">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Eidosmedia.Cobalt.Site.NodeData.html">Eidosmedia\Cobalt\Site\NodeData</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getNode">#</a>
+		<code><a href="source-class-Eidosmedia.Cobalt.Site.Site.html#90-106" title="Go to source code">getNode</a>( <span>string <var>$siteName</var></span>, <span>string <var>$id</var></span> )</code>
+
+		<div class="description short">
+			<p>Node by id</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Node by id</p>
+
+<p>Method to get a single node by its id for a given site.</p>
+
+<p>It calls the <em>/api/nodes/{id}</em> resource.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$siteName</var></dt>
+					<dd>the site name</dd>
+					<dt><var>$id</var></dt>
+					<dd>the node id</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Eidosmedia.Cobalt.Site.NodeData.html">Eidosmedia\Cobalt\Site\NodeData</a></code><br>the node data for the given parameters
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPage" id="_getPage">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Eidosmedia.Cobalt.Site.Page.html">Eidosmedia\Cobalt\Site\Page</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPage">#</a>
+		<code><a href="source-class-Eidosmedia.Cobalt.Site.Site.html#108-134" title="Go to source code">getPage</a>( <span>string <var>$siteName</var></span>, <span> <var>$nodeOrIdOrPath</var></span> )</code>
+
+		<div class="description short">
+			<p>Page by id or path</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Page by id or path</p>
+
+<p>Method to get a page by its path or id for a given site.</p>
+
+<p>It calls the <em>/api/pages</em> resource.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$siteName</var></dt>
+					<dd>the site name</dd>
+					<dt><var>$nodeOrIdOrPath</var></dt>
+					<dd>can be a node as a NodeDate, or its id as a string, or its path as a string</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Eidosmedia.Cobalt.Site.Page.html">Eidosmedia\Cobalt\Site\Page</a></code><br>the page for the given parameters
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Eidosmedia.Cobalt.Commons.Service.html#methods">Eidosmedia\Cobalt\Commons\Service</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Eidosmedia.Cobalt.Commons.Service.html#_getHttpClient">getHttpClient()</a>, 
+			<a href="class-Eidosmedia.Cobalt.Commons.Service.html#_getInfo">getInfo()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?61fe12747ac673328cb2357b4a027528622d98a3"></script>
+<script src="elementlist.js?10306b6f2fd891643b2f9f069c47caa7804e6c2d"></script>
+</body>
+</html>
